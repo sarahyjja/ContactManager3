@@ -6,6 +6,6 @@ RSpec.describe ContactManager do
     contact_manager = ContactManager.new
     new_contact = contact_manager.create_new_contact("sarah")
 
-    expect(new_contact.first_name).to eq("sarah")
+  expect(new_contact.first_name).to eq("sarah")
   end
 end
