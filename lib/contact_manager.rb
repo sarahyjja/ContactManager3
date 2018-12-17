@@ -12,4 +12,12 @@ class ContactManager
   def contacts
     @contacts
   end
+
+  def delete(first_name)
+    @contacts.map { |contact|
+      if contact.first_name == first_name
+        @contacts.delete(contact)
+      end
+    }
+  end
 end

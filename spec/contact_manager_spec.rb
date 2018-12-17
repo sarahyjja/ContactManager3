@@ -20,4 +20,15 @@ RSpec.describe ContactManager do
     #expect(contact_manager.list_contacts).to eq(list)
     expect(contact_manager.contacts[0].first_name).to eq("sarah")
   end
+
+  it 'delete a contact' do
+    contact_manager = ContactManager.new
+
+    contact_manager.create_new_contact("bob")
+    contact_manager.create_new_contact("dylan")
+
+    contact_manager.delete("dylan")
+
+    expect(contact_manager.contacts.length).to eq(1)
+  end
 end
