@@ -48,7 +48,7 @@ RSpec.describe ContactManager do
     contact_found = contact_manager.find_by("alex")
 
     expect(contact_found.first_name).to eq("alex")
-  end
+  end 
 
   it 'add 25£ to each contact' do
     contact_manager = ContactManager.new
