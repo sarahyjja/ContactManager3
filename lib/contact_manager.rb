@@ -20,4 +20,36 @@ class ContactManager
       end
     }
   end
+
+  def replace_with(name_to_replace, new_name)
+    @contacts.each { |contact|
+      if contact.first_name == name_to_replace
+        contact.first_name = new_name
+      end
+    }
+  end
+
+  def find_by(first_name)
+    @contacts.each { |contact|
+      if contact.first_name == first_name
+        return contact
+      end
+    }
+  end
+
+  def add_money_to_everyone(amount)
+    @contacts.each { |contact|
+      contact.balance += amount
+    }
+  end
+
+  def add_money_by_name(name, amount)
+    @contacts.each { |contact|
+      if contact.first_name == name
+        contact.balance += amount
+        return contact
+      end
+    }
+  end
+
 end
