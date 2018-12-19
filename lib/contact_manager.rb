@@ -5,8 +5,8 @@ class ContactManager
     @contacts = []
   end
 
-  def create_new_contact(first_name)
-    @contacts << Contact.new(first_name)
+  def create_new_contact(first_name, last_name)
+    @contacts << Contact.new(first_name, last_name)
   end
 
   def contacts

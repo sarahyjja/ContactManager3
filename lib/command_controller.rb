@@ -9,6 +9,6 @@ attr_reader :contact_manager
   end
 
   def dispatch(args)
-    @contact_manager.create_new_contact(args[2])
+    @contact_manager.create_new_contact(args[2], args[4])
   end
 end
