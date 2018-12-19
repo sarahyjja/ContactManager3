@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# Allows you to require any file in lib
+$: << File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'command_controller'
+
+controller = CommandController.new
+controller.dispatch(ARGV)
