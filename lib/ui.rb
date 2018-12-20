@@ -17,7 +17,7 @@ def welcome
   if user_input == "ls"
     @command_controller.commands.each do |command|
     @output.puts command
-  end
+   end
 end
 
 end

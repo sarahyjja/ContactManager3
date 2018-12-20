@@ -6,7 +6,7 @@ attr_reader :contact_manager, :commands
 
   def initialize
     @contact_manager = ContactManager.new
-    @commands = ["create_new_contact"]
+    @commands = ["add_contact", "delete_contact", "modify_contact", "list_contacts"]
   end
 
   def dispatch(args)
@@ -17,11 +17,11 @@ attr_reader :contact_manager, :commands
   end
 
   def parse_command(args)
-    command = args[0]
+    command = args[0..-1]
     p command
   end
 
-  # def commands 
+  # def commands
   #   @commands
   # end
 
@@ -34,7 +34,6 @@ attr_reader :contact_manager, :commands
       value = attribute[1]
       hash[clean_key] = value
     end
-
     hash
   end
 
