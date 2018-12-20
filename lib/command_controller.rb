@@ -13,17 +13,15 @@ attr_reader :contact_manager, :commands
    command = parse_command(args)
    attributes = parse_attributes(args)
    p attributes
-   @contact_manager.create_new_contact(attributes["first_name"], attributes["last_name"])
+   enter_contact = @contact_manager.create_new_contact(attributes["first_name"], attributes["last_name"])
+   # enter_contact.save_contacts()
+   # save_contacts
   end
 
   def parse_command(args)
-    command = args[0..-1]
+    command = args[0]
     p command
   end
-
-  # def commands
-  #   @commands
-  # end
 
   def parse_attributes(args)
     hash = {}

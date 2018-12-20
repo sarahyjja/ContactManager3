@@ -1,0 +1,1 @@
+[#<Contact:0x00007f88fb1a1518 @first_name="eddy", @last_name="murphy", @balance=100>, #<Contact:0x00007f88fb1a14a0 @first_name="charles", @last_name="barclays", @balance=100>, #<Contact:0x00007f88fb1a1428 @first_name="louise", @last_name="attaque", @balance=100>]

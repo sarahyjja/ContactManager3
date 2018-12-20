@@ -16,7 +16,7 @@ RSpec.describe CommandController do
     expect(controller.contact_manager.contacts[0].first_name).to eq "andrew"
   end
 
-  it ' ' do
+  it 'accept arguments in any order' do
     controller = CommandController.new
     controller.dispatch(["create_contact", "-last_name", "kara", "-first_name", "andrew"])
     p controller.contact_manager.contacts

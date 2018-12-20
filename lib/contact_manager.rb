@@ -37,6 +37,48 @@ class ContactManager
     }
   end
 
+   # def save_contacts
+   #  open_file = File.open('./lib/agenda.json','w') do |file|
+   #     file << @contacts
+   #     p @contacts
+   #   end
+   #  # open_file.close
+   #  end
+
+
+   def open_file
+      File.open('./lib/agenda.json')
+    end
+
+   def write_file
+   #   the_file = []
+   #   File.write('./lib/agenda.json') do |file|
+   #     the_file << file
+   #   end
+   #   the_file_json = the_file.json
+   # end
+
+     File.write('./lib/agenda.json', 'w') do |file|
+       file << @contacts
+     end
+   end
+
+
+   def read_file
+     File.read('./lib/agenda.json','r')
+   end
+
+   def save_contacts
+     open_file
+     write_file
+     # File.close
+   end
+
+   def show_contacts
+     open_file
+     read_file
+   end
+
   def add_money_to_everyone(amount)
     @contacts.each { |contact|
       contact.balance += amount
