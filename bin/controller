@@ -4,6 +4,10 @@
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
 
 require 'command_controller'
+require 'ui'
 
-controller = CommandController.new
-controller.dispatch(ARGV)
+# controller = CommandController.new
+# controller.dispatch(ARGV)
+
+ui = UI.new
+ui.welcome

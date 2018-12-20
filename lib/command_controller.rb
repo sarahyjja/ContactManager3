@@ -2,10 +2,11 @@ require 'contact_manager'
 
 class CommandController
 
-attr_reader :contact_manager
+attr_reader :contact_manager, :commands
 
   def initialize
     @contact_manager = ContactManager.new
+    @commands = ["create_new_contact"]
   end
 
   def dispatch(args)
@@ -19,6 +20,10 @@ attr_reader :contact_manager
     command = args[0]
     p command
   end
+
+  # def commands 
+  #   @commands
+  # end
 
   def parse_attributes(args)
     hash = {}
