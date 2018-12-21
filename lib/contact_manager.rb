@@ -21,7 +21,7 @@ class ContactManager
     new_hash = @contacts.map do |contact|
       {first_name: contact.first_name, last_name: contact.last_name}
     end
-  end
+  end 
 
   def save_to_file(content)
     f = File.open('./lib/contacts.json', 'w')
