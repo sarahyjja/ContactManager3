@@ -8,6 +8,7 @@ require 'ui'
 
 controller = CommandController.new
 controller.dispatch(ARGV)
+# ARGV: ["first_name", "sarah", "last_name", "kara"]
 
 # ui = UI.new
 # ui.welcome

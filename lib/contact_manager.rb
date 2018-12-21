@@ -1,4 +1,6 @@
 require 'contact'
+require 'json'
+require 'ostruct'
 
 class ContactManager
   def initialize
@@ -6,8 +8,32 @@ class ContactManager
   end
 
   def create_new_contact(first_name, last_name)
-    @contacts << Contact.new(first_name, last_name)
+    contact = Contact.new(first_name, last_name)
+    @contacts << contact
+    p @contacts
+    new_hash = convert_object_into_hash
+    contacts_json = JSON.generate(new_hash)
+    save_to_file(contacts_json)
   end
+
+  def convert_object_into_hash
+    hash = {}
+    new_hash = @contacts.map do |contact|
+      {first_name: contact.first_name, last_name: contact.last_name}
+    end
+  end
+
+  def save_to_file(content)
+    f = File.open('./lib/contacts.json', 'w')
+    f.write(content)
+    p content
+    f.close
+  end
+
+   def read_file
+     json = File.read('./lib/contacts.json')
+     hash = JSON.parse(json)
+   end
 
   def contacts
     @contacts
@@ -36,48 +62,6 @@ class ContactManager
       end
     }
   end
-
-   # def save_contacts
-   #  open_file = File.open('./lib/agenda.json','w') do |file|
-   #     file << @contacts
-   #     p @contacts
-   #   end
-   #  # open_file.close
-   #  end
-
-
-   def open_file
-      File.open('./lib/agenda.json')
-    end
-
-   def write_file
-   #   the_file = []
-   #   File.write('./lib/agenda.json') do |file|
-   #     the_file << file
-   #   end
-   #   the_file_json = the_file.json
-   # end
-
-     File.write('./lib/agenda.json', 'w') do |file|
-       file << @contacts
-     end
-   end
-
-
-   def read_file
-     File.read('./lib/agenda.json','r')
-   end
-
-   def save_contacts
-     open_file
-     write_file
-     # File.close
-   end
-
-   def show_contacts
-     open_file
-     read_file
-   end
 
   def add_money_to_everyone(amount)
     @contacts.each { |contact|

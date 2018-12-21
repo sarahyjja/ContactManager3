@@ -86,16 +86,4 @@ RSpec.describe ContactManager do
 
     expect(contact_manager.contacts[0].last_name).to eq("curau")
   end
-
-  it 'create a file with our list of contacts' do
-    contact_manager = ContactManager.new
-    contact_manager.create_new_contact("eddy", "murphy")
-    contact_manager.create_new_contact("charles", "barclays")
-    contact_manager.create_new_contact("louise", "attaque")
-
-    contact_manager.save_contacts
-
-    # expect(output.contacts).to match({"first_name"=>"eddy", "last_name"=>"murphy"}, {"first_name"=>"charles", "last_name"=>"barclays"}, {"first_name"=>"louise", "last_name"=>"attaque"})
-    expect(output.contacts).to eq([{"first_name"=>"eddy", "last_name"=>"murphy"}, {"first_name"=>"charles", "last_name"=>"barclays"}, {"first_name"=>"louise", "last_name"=>"attaque"}])
-  end
 end

@@ -10,12 +10,15 @@ attr_reader :contact_manager, :commands
   end
 
   def dispatch(args)
-   command = parse_command(args)
-   attributes = parse_attributes(args)
-   p attributes
-   enter_contact = @contact_manager.create_new_contact(attributes["first_name"], attributes["last_name"])
-   # enter_contact.save_contacts()
-   # save_contacts
+    command = parse_command(args)
+    attributes = parse_attributes(args)
+    # p attributes
+    if command == "add_contact"
+   @contact_manager.create_new_contact(attributes["first_name"], attributes["last_name"])
+   elsif command == "list_contacts"
+     list = @contact_manager.read_file
+     puts list
+    end
   end
 
   def parse_command(args)
